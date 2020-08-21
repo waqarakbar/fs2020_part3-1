@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const persons = [
+let persons = [
 	{
 		name: 'Ali Khan',
 		number: '0333 1231234',
@@ -44,7 +44,7 @@ app.get('/api/persons', (request, response) => {
 app.get('/api/persons/:id', (request, response) => {
 	const id = Number(request.params.id)
 	const person = persons.find(p => p.id === id)
-	
+
 	if(person){
 		return response.status(200).json(person)
 	}else{
@@ -52,6 +52,12 @@ app.get('/api/persons/:id', (request, response) => {
 			error: 'resource not found'
 		})
 	}
+})
+
+app.delete('/api/persons/:id', (request, response) => {
+	const id = Number(request.params.id)
+	persons = persons.filter(person => person.id !== id)
+	response.status(204).end()
 })
 
 const PORT = 3001
