@@ -1,0 +1,30 @@
+{
+  "name": "fs2020_part3-1",
+  "version": "1.0.0",
+  "description": "FS2020 part 3.1 exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waqarakbar/fs2020_part3-1.git"
+  },
+  "keywords": [
+    "FS2020"
+  ],
+  "author": "Waqar Akbar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waqarakbar/fs2020_part3-1/issues"
+  },
+  "homepage": "https://github.com/waqarakbar/fs2020_part3-1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
