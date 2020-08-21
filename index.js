@@ -31,6 +31,12 @@ app.get('/', (request, response) => {
 	response.send('Server is running')
 })
 
+app.get('/info', (request, response) => {
+	const personCount = persons.length
+	const currentDateTime = new Date()
+	response.send(`Phonebook has info for ${personCount} people <br> ${currentDateTime}`)
+})
+
 app.get('/api/persons', (request, response) => {
 	response.json(persons)
 })
