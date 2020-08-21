@@ -63,6 +63,27 @@ app.delete('/api/persons/:id', (request, response) => {
 app.post('/api/persons', (request, response) => {
 
 	const body = request.body 
+
+	if(!body.name){
+		return response.status(422).json({
+			error: 'name of person can not be empty'
+		})
+	}
+
+	if(!body.number){
+		return response.status(422).json({
+			error: 'number of person can not be empty'
+		})
+	}
+
+	const personExists = persons.filter(person => person.name.toLowerCase() === body.name.toLowerCase())
+	// console.log(personExists.length)
+	if(personExists.length > 0){
+		return response.status(409).json({
+			error: 'the name already exists in phonbook'
+		})
+	}
+
 	const newPerson = {
 		id: Math.floor(Math.random()*10000),
 		name: body.name,
